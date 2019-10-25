@@ -1,0 +1,31 @@
+<form [formGroup]="clienteForm" (ngSubmit)="save()">
+    <div [hidden]="false">
+        <input type="text" formControlName="id" name="id" id="id" >
+    </div>
+    <label>
+        Nombre:
+        <input type="text" formControlName="nombre" name="nombre" id="nombre" required>
+        <div [hidden]="clienteForm.get('nombre').valid || 
+        clienteForm.get('nombre').pristine" class="alert alert-danger">
+            Titulo is required
+        </div>
+    </label>
+    <br>
+    <label>
+        Apellido:
+        <input type="text" formControlName="apellido" name="apellido" id="apellido" required>
+    </label>
+    <br>
+    <label>
+        Telefono:
+        <input type="text" formControlName="telefono" name="telefono" id="telefono" required>
+    </label>
+    <br>
+    <label>
+        Direccion:
+        <input type="text" formControlName="direccion" name="direccion" id="direccion" required>
+    </label>
+    <br>
+    <button type="submit" [disabled]="!clienteForm.valid">Save</button>
+</form>
+<p>{{ clienteForm.value | json }}</p>

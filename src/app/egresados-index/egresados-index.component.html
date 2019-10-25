@@ -1,0 +1,15 @@
+<nav>
+  <a routerLink="/egresadosform" routerLinkActive="active">Nuevo Egresado</a> <br>
+
+</nav>
+<div *ngFor="let d of list">
+   <p>nuemro</p> <span>{{ d.id }}</span>
+    <p>Fecha ingreso</p><span>{{ d.fecha_ingreso }}</span>
+    <p>Fecha Egreso</p><span>{{ d.fecha_egreso }}</span>
+    <br>
+    <span><a routerLink="/egresadosform/{{ d.id }}" routerLinkActive="active">
+      <button class="btn btn-info">Editar</button></a></span>
+    <span><button (click)="delete(d.id)" class="btn btn-info">Borrar</button></span>
+
+  </div>
+  

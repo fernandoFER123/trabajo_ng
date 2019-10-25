@@ -1,0 +1,57 @@
+<h1>Egresados</h1>
+<form [formGroup]="egresadosForm" (ngSubmit)="save()">
+    <div [hidden]="true">
+        <input type="text" class="form-control" formControlName="id" name="id" id="id" >
+    </div>
+    <label>
+        <p>Nombre Egresado</p>
+        <input type="text" name="nombre_egresado"  class="form-control" formControlName="nombre_egresado" placeholder="Nombre de Egresado" autofocus="">
+    </label>
+    <br>
+    <label>
+        <p>Apellido Paterno</p>
+        <input type="text" name="apellido_paterno"   class="form-control" formControlName="apellido_paterno" placeholder="Ingrese Apellido Paterno" >
+    </label>
+    <br>
+    <label>
+        <p>Apellido Materno</p>
+        <input type="text" name="apellido_materno"   class="form-control" formControlName="apellido_materno" placeholder="Ingrese Apellido Materno" >
+    </label>
+    <br>
+    <label>
+        <p>Numero de Telefono</p>
+            <input pattern="[0-9]"type="text" name="numero_telefono"   class="form-control" formControlName="numero_telefono" placeholder="Ingrese Numero de Telefono" >
+    </label>
+    <br>
+    <label>
+        <p>DNI</p>
+        <input onKeyPress="return soloNumeros(event)" type="text" name="dni" class="form-control" formControlName="dni" placeholder="Ingrese DNI">
+    </label>
+    <label>
+        <P>Codigo Universitario</P>
+        <input type="number" name="codigo_universitario" class="form-control" formControlName="codigo_universitario" placeholder="Ingrese Codigo Universitario">
+    </label>
+    <br>
+    <label>
+        <p>Direccion</p>
+         <input type="text" formControlName="direccion"
+         class="form-control" name="direccion" placeholder="Ingrese Direccion" id="direccion" required>
+    </label>
+    <br>
+    <label>
+        <p>Fecha Ingreso</p>
+        <input type="date" formControlName="fecha_ingreso" name="fecha_ingreso" id="fecha_ingreso"  class="form-control" required>
+    </label>
+    <label>
+        <p>Fecha Egreso</p>
+        <input type="date" formControlName="fecha_egreso" name="fecha_egreso" id="fecha_egreso"  class="form-control" required> 
+    </label>
+    <br>
+    <label>
+        <p>Email</p>
+        <input name="email" type="text" class="form-control" formControlName="email" placeholder="Email">
+    </label>
+    <br>
+    <button class="form-check-input position-static" type="submit" [disabled]="!egresadosForm.valid">Guardar</button>
+</form>
+<p>{{ egresadosForm.value | json }}</p>

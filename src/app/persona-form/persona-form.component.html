@@ -1,0 +1,48 @@
+	<h1>Registros Egresado</h1>
+<form [formGroup]="personaForm" (ngSubmit)="save()">
+    <div [hidden]="false">
+        <input  class="form-control"type="text" formControlName="id" name="id" id="id" >
+    </div>
+    <label>
+        <p>Nombre</p>
+        <input type="text" formControlName="nombre" class="form-control" name="nombre" 
+        placeholder="Nombre de Egresado" id="nombre" required>
+        <div [hidden]="personaForm.get('nombre').valid || 
+        personaForm.get('nombre').pristine" >
+        </div>
+    </label>
+    <br>
+    <label>
+        <p>Apellido Paterno</p>
+        <input type="text" class="form-control" formControlName="apellidoP" placeholder="Ingrese Apellido Paterno" name="apellido" id="apellido" required>
+    </label>
+    <br>
+    <label>
+            <p>Apellido Materno</p>
+        <input type="text"  class="form-control" formControlName="apellidoM" placeholder="Ingrese Apellido Materno" name="apellido" id="apellido" required>
+    </label>
+    <br>
+    <label>
+            <p>Telefono</p>
+        <input type="number" class="form-control" formControlName="telefono" name="telefono" placeholder="Ingrese Numero de Telefono" id="telefono" required>
+    </label>
+    <br>
+    <label>
+            <p>Direccion</p>
+        <input type="text" class="form-control" formControlName="direccion" name="direccion" placeholder="Ingrese Direccion" id="direccion" required>
+    </label>
+    <br>
+    <label>
+            <p>Email</p>
+        <input name="email" type="text" class="form-control" formControlName="email" placeholder="Email">
+    </label>
+    <label>
+            <p>egresadoID</p>
+        <input type="text" class="form-control" formControlName="egresadoID" name="egresadoID" placeholder="Numero de Egresado" id="egresadoID" required>
+    </label>
+    <br>
+    
+    <br>
+    <button type="submit" [disabled]="!personaForm.valid">Guardar</button>
+</form>
+<p>{{ personaForm.value | json }}</p>
